@@ -151,9 +151,6 @@
                     </view>
                     <connections>
                         <outlet property="displayNameStackView" destination="cQa-NW-z0P" id="SeR-eq-627"/>
-                        <outlet property="displayNameTextField" destination="z9Z-Y7-MnI" id="GDH-5W-Lvf"/>
-                        <outlet property="emailTextField" destination="nRt-gY-B08" id="x8E-S1-wPg"/>
-                        <outlet property="passwordTextField" destination="2l9-ff-a5V" id="7RK-j4-R9h"/>
                         <outlet property="segmentedControl" destination="ehH-NY-NyT" id="3yr-nI-6nu"/>
                         <segue destination="AUl-as-rsd" kind="show" identifier="toAllRooms" id="DXW-73-RKi"/>
                     </connections>
@@ -175,7 +172,7 @@
                                 <color key="backgroundColor" red="0.99654692410000001" green="0.34516865019999998" blue="0.39605700970000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.99654692410000001" green="0.34516865019999998" blue="0.39605700970000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="roomCell" rowHeight="129" id="Qf9-Le-MCC" customClass="RoomCell" customModule="Messaging" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="129" id="Qf9-Le-MCC" customClass="RoomCell" customModule="Messaging" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qf9-Le-MCC" id="UKr-Vr-gsB">
@@ -250,7 +247,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="A87-Bj-UFg" id="us4-Pc-cCE"/>
                         <segue destination="JA7-0t-sXT" kind="show" identifier="toChat" id="dDi-fU-l1L"/>
                     </connections>
                 </viewController>
@@ -498,7 +494,6 @@
                         <viewLayoutGuide key="safeArea" id="dfA-Il-8dK"/>
                     </view>
                     <connections>
-                        <outlet property="messageTextField" destination="NRb-20-1H5" id="kfS-ir-lvT"/>
                         <outlet property="tableView" destination="Fb4-co-9mI" id="16p-sM-s69"/>
                     </connections>
                 </viewController>

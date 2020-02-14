@@ -11,73 +11,45 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class AllRoomsViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    
-    let db = Firestore.firestore()
-    var roomsCollection: [QueryDocumentSnapshot] = []
-    var roomName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        addChannelListener()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        loadAllRooms()
-    }
     
     func addChannelListener() {
-        db.collection("channels").addSnapshotListener { querySnapshot, error in
-            guard let documents = querySnapshot?.documents else {
-                print("Error fetching documents: \(error!)")
-                return
-            }
-            self.roomsCollection = documents
-            self.tableView.reloadData()
-        }
+        //Update rooms when new room is added
+        
     }
     
     func loadAllRooms() {
-        db.collection("channels").getDocuments { (snapShot, error) in
-            self.roomsCollection = snapShot!.documents
-            self.tableView.reloadData()
-        }
+        //Load rooms when page appeared
     }
 }
 
 extension AllRoomsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return roomsCollection.count
+        // Numbers of rows to show on UITableView
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "roomCell") as! RoomCell
-         roomName = roomsCollection[indexPath.row].data()["name"] as? String
-        let roomDescription = roomsCollection[indexPath.row].data()["description"] as? String
-        cell.selectionStyle = .none
-        cell.configCell(name: roomName ?? "", description: roomDescription ?? "")
-        return cell
+        // UI to show on each cell
+        return UITableViewCell()
+       
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Tapped on cell
         
-        roomName = roomsCollection[indexPath.row].data()["name"] as? String
-        performSegue(withIdentifier: "toChat", sender: nil)
     
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destionationVC = segue.destination as? ChatViewController {
-            destionationVC.channel = roomName
-        }
+        //Set value on next page
+        
     }
-    
-    
-    
 }
 
 extension AllRoomsViewController: UITableViewDelegate {
