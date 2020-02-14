@@ -14,9 +14,7 @@
 		DA2B7D7923F57F9B00C3AA1D /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B7D7823F57F9B00C3AA1D /* RoomCell.swift */; };
 		DA2B7D7B23F593A900C3AA1D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B7D7A23F593A900C3AA1D /* ChatViewController.swift */; };
 		DA2B7D7E23F594DF00C3AA1D /* MyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B7D7C23F594DF00C3AA1D /* MyMessageCell.swift */; };
-		DA2B7D7F23F594DF00C3AA1D /* MyMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2B7D7D23F594DF00C3AA1D /* MyMessageCell.xib */; };
 		DA2B7D8223F594FB00C3AA1D /* OtherMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B7D8023F594FB00C3AA1D /* OtherMessageCell.swift */; };
-		DA2B7D8323F594FB00C3AA1D /* OtherMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2B7D8123F594FB00C3AA1D /* OtherMessageCell.xib */; };
 		DA7BCF8923F5353D00D5314D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BCF8823F5353D00D5314D /* AppDelegate.swift */; };
 		DA7BCF8B23F5353D00D5314D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BCF8A23F5353D00D5314D /* LoginController.swift */; };
 		DA7BCF8E23F5353D00D5314D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7BCF8C23F5353D00D5314D /* Main.storyboard */; };
@@ -35,9 +33,7 @@
 		DA2B7D7823F57F9B00C3AA1D /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 		DA2B7D7A23F593A900C3AA1D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		DA2B7D7C23F594DF00C3AA1D /* MyMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageCell.swift; sourceTree = "<group>"; };
-		DA2B7D7D23F594DF00C3AA1D /* MyMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMessageCell.xib; sourceTree = "<group>"; };
 		DA2B7D8023F594FB00C3AA1D /* OtherMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMessageCell.swift; sourceTree = "<group>"; };
-		DA2B7D8123F594FB00C3AA1D /* OtherMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherMessageCell.xib; sourceTree = "<group>"; };
 		DA7BCF8523F5353D00D5314D /* Messaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7BCF8823F5353D00D5314D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA7BCF8A23F5353D00D5314D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -101,9 +97,7 @@
 			children = (
 				DA2B7D7823F57F9B00C3AA1D /* RoomCell.swift */,
 				DA2B7D7C23F594DF00C3AA1D /* MyMessageCell.swift */,
-				DA2B7D7D23F594DF00C3AA1D /* MyMessageCell.xib */,
 				DA2B7D8023F594FB00C3AA1D /* OtherMessageCell.swift */,
-				DA2B7D8123F594FB00C3AA1D /* OtherMessageCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,11 +196,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA2B7D8323F594FB00C3AA1D /* OtherMessageCell.xib in Resources */,
 				DA7BCF9323F5353E00D5314D /* LaunchScreen.storyboard in Resources */,
 				DA7BCF9023F5353E00D5314D /* Assets.xcassets in Resources */,
 				DA7BCF9B23F53D3400D5314D /* GoogleService-Info.plist in Resources */,
-				DA2B7D7F23F594DF00C3AA1D /* MyMessageCell.xib in Resources */,
 				DA7BCF8E23F5353D00D5314D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

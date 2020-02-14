@@ -27,8 +27,6 @@ class ChatViewController: UIViewController {
         tableView.dataSource = self
         self.navigationItem.title = channel
         // Register TableViewCell to use custom cell
-        tableView.register(UINib(nibName: "MyMessageCell", bundle: nil), forCellReuseIdentifier: "myMessageCell")
-        tableView.register(UINib(nibName: "OtherMessageCell", bundle: nil), forCellReuseIdentifier: "otherMessageCell")
         tableView.separatorStyle = .none
         addChatListener()
     }

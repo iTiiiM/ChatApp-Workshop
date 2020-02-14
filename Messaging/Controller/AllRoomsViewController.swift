@@ -67,6 +67,7 @@ extension AllRoomsViewController: UITableViewDataSource {
         
         roomName = roomsCollection[indexPath.row].data()["name"] as? String
         performSegue(withIdentifier: "toChat", sender: nil)
+    
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
