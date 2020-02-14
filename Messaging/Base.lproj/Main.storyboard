@@ -265,7 +265,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="w22-Ow-DgJ">
                                 <rect key="frame" x="15" y="114" width="384" height="124.66666666666669"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room's name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sy4-Y1-LVO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel's name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sy4-Y1-LVO">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -290,9 +290,9 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSD-ae-9wR">
-                                <rect key="frame" x="154" y="364" width="67" height="30"/>
+                                <rect key="frame" x="144" y="364" width="88" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add room"/>
+                                <state key="normal" title="Add Channel"/>
                                 <connections>
                                     <action selector="addRoomButtonDidTapped:" destination="670-Em-rfO" eventType="touchUpInside" id="YX9-ly-gL8"/>
                                 </connections>
@@ -307,10 +307,6 @@
                         <viewLayoutGuide key="safeArea" id="UGJ-iM-YvZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="1OX-6Z-lsI"/>
-                    <connections>
-                        <outlet property="descriptionTextField" destination="ijO-mK-PJf" id="FbW-wn-Maz"/>
-                        <outlet property="roomNameTextField" destination="u0c-ML-V5J" id="Zgy-sg-FU3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CzN-ri-WGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
