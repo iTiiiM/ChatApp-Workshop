@@ -9,5 +9,6 @@ target 'Messaging' do
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'PopupDialog', '~> 1.0.0'
 
 end

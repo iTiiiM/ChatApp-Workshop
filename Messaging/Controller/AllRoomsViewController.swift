@@ -8,10 +8,12 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class AllRoomsViewController: UIViewController {
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  
+    
     @IBOutlet weak var tableView: UITableView!
     let db = Firestore.firestore()
     var roomsCollection: [QueryDocumentSnapshot] = []
@@ -25,9 +27,8 @@ class AllRoomsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-//        loadAllRooms()
+
+        loadAllRooms()
     }
     
     func addChannelListener() {
@@ -44,8 +45,6 @@ class AllRoomsViewController: UIViewController {
     func loadAllRooms() {
         db.collection("channels").getDocuments { (snapShot, error) in
             self.roomsCollection = snapShot!.documents
-            self.activityIndicator.stopAnimating()
-            self.activityIndicator.isHidden = true
             self.tableView.reloadData()
         }
     }
@@ -56,7 +55,7 @@ extension AllRoomsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "roomCell") as! RoomCell
          roomName = roomsCollection[indexPath.row].data()["name"] as? String
         let roomDescription = roomsCollection[indexPath.row].data()["description"] as? String
-
+        cell.selectionStyle = .none
         cell.configCell(name: roomName ?? "", description: roomDescription ?? "")
         return cell
     }
