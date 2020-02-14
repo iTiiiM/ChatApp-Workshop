@@ -10,15 +10,12 @@ import UIKit
 
 class RoomCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBOutlet weak var roomNameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    func configCell(name: String, description: String) {
+        roomNameLabel.text = name
+        descriptionLabel.text = description
     }
 
 }

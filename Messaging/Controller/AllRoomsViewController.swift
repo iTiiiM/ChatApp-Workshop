@@ -7,24 +7,75 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class AllRoomsViewController: UIViewController {
-
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!
+    let db = Firestore.firestore()
+    var roomsCollection: [QueryDocumentSnapshot] = []
+    var roomName: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        addChannelListener()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+//        loadAllRooms()
     }
-    */
+    
+    func addChannelListener() {
+        db.collection("channels").addSnapshotListener { querySnapshot, error in
+            guard let documents = querySnapshot?.documents else {
+                print("Error fetching documents: \(error!)")
+                return
+            }
+            self.roomsCollection = documents
+            self.tableView.reloadData()
+        }
+    }
+    
+    func loadAllRooms() {
+        db.collection("channels").getDocuments { (snapShot, error) in
+            self.roomsCollection = snapShot!.documents
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            self.tableView.reloadData()
+        }
+    }
+}
 
+extension AllRoomsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "roomCell") as! RoomCell
+         roomName = roomsCollection[indexPath.row].data()["name"] as? String
+        let roomDescription = roomsCollection[indexPath.row].data()["description"] as? String
+
+        cell.configCell(name: roomName ?? "", description: roomDescription ?? "")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        roomName = roomsCollection[indexPath.row].data()["name"] as? String
+        performSegue(withIdentifier: "toChat", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destionationVC = segue.destination as? ChatViewController {
+            destionationVC.channel = roomName
+        }
+    }
+    
+}
+
+extension AllRoomsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return roomsCollection.count
+    }
 }

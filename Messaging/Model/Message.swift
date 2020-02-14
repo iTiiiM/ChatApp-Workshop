@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct Message {
+    var senderName: String
+    var messageBody: String
+    
+    init(name: String, message: String) {
+        senderName = name
+        messageBody = message
+    }
+
+}

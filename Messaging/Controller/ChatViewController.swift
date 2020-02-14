@@ -7,24 +7,89 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class ChatViewController: UIViewController {
+    
+    let db = Firestore.firestore()
+    var messageCollection: [QueryDocumentSnapshot] = []
+//    var messages: [Message] = []
 
+    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var channel: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.navigationItem.title = channel
+        tableView.register(UINib(nibName: "MyMessageCell", bundle: nil), forCellReuseIdentifier: "myMessageCell")
+        tableView.register(UINib(nibName: "OtherMessageCell", bundle: nil), forCellReuseIdentifier: "otherMessageCell")
+        tableView.separatorStyle = .none
+        addChatListener()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        loadAllChats()
     }
-    */
+    
+    func addChatListener() {
+        db.collection("channels").document(channel ?? "").collection("messages").addSnapshotListener { (snapShot, error) in
+            guard let documents = snapShot?.documents else {
+                print("Error fetching documents: \(error!)")
+                return
+            }
+            self.messageCollection = documents
+            self.tableView.reloadData()
+        }
+    }
+    
+    func loadAllChats() {
+        db.collection("channels").document(channel ?? "").collection("messages").getDocuments { (snapShot, error) in
+            guard let documents = snapShot?.documents else {
+                print("Error fetching documents: \(error!)")
+                return
+            }
+            self.messageCollection = documents
+            self.tableView.reloadData()
+        }
+    }
+    
+    @IBAction func sendButtonDidTapped(_ sender: Any) {
+        db.collection("channels").document(channel ?? "").collection("messages").addDocument(data: ["senderId": Auth.auth().currentUser?.uid, "messageBody": messageTextField.text!])
+        
+    }
+    
+}
 
+extension ChatViewController: UITableViewDelegate {
+    
+    
+}
+
+extension ChatViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messageCollection.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let senderName = messageCollection[indexPath.row].data()["senderId"] as? String
+        let message = messageCollection[indexPath.row].data()["messageBody"] as? String
+        
+        if senderName != Auth.auth().currentUser?.uid {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "otherMessageCell") as! OtherMessageCell
+            cell.selectionStyle = .none
+            cell.configCell(name: senderName ?? "", message: message ?? "")
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "myMessageCell") as! MyMessageCell
+            cell.selectionStyle = .none
+            cell.configCell(name: senderName ?? "", message: message ?? "")
+            return cell
+        }
+    }
 }
