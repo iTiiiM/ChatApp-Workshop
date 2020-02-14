@@ -33,12 +33,17 @@ class ViewController: UIViewController {
             if error != nil {
                 print(error!)
             } else {
-               
-                self.db?.collection("users").addDocument(data: ["email": self.emailTextField.text ?? ""])
                 let user = Auth.auth().currentUser
                 if let user = user {
                     let changeRequest = user.createProfileChangeRequest()
                     changeRequest.displayName = self.displayNameTextField.text
+                    changeRequest.commitChanges(completion: { (error) in
+                        if error != nil {
+                            print(error!)
+                        } else {
+                            //                            self.db?.collection("users").addDocument(data: ["email": self.emailTextField.text ?? "", "displayName": self.displayNameTextField.text])
+                        }
+                    })
                 }
                 let alert = UIAlertController(title: "Register success", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))

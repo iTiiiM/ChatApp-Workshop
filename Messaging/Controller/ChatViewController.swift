@@ -59,7 +59,7 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func sendButtonDidTapped(_ sender: Any) {
-        db.collection("channels").document(channel ?? "").collection("messages").addDocument(data: ["senderId": Auth.auth().currentUser?.uid, "messageBody": messageTextField.text!])
+        db.collection("channels").document(channel ?? "").collection("messages").addDocument(data: ["senderName": Auth.auth().currentUser?.displayName, "messageBody": messageTextField.text!])
         
     }
     
@@ -76,10 +76,10 @@ extension ChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let senderName = messageCollection[indexPath.row].data()["senderId"] as? String
+        let senderName = messageCollection[indexPath.row].data()["senderName"] as? String
         let message = messageCollection[indexPath.row].data()["messageBody"] as? String
         
-        if senderName != Auth.auth().currentUser?.uid {
+        if senderName != Auth.auth().currentUser?.displayName {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "otherMessageCell") as! OtherMessageCell
             cell.selectionStyle = .none
