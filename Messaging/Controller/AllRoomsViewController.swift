@@ -14,8 +14,8 @@ class AllRoomsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Chat App"
     }
-    
     
     func addChannelListener() {
         //Update rooms when new room is added

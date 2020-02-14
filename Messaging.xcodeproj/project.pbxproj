@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		71FACE09BE52937A04F2EF94 /* Pods_Messaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71A85DFA0659DF68F843CB5 /* Pods_Messaging.framework */; };
 		DA1A801323F5C84800B2C6C0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A801223F5C84800B2C6C0 /* Message.swift */; };
+		DA1A801523F703BE00B2C6C0 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A801423F703BE00B2C6C0 /* ViewControllerExtension.swift */; };
 		DA2B7D7323F57A1600C3AA1D /* AllRoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B7D7223F57A1600C3AA1D /* AllRoomsViewController.swift */; };
 		DA2B7D7623F57B0100C3AA1D /* AddRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B7D7523F57B0100C3AA1D /* AddRoomViewController.swift */; };
 		DA2B7D7923F57F9B00C3AA1D /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B7D7823F57F9B00C3AA1D /* RoomCell.swift */; };
@@ -28,6 +29,7 @@
 		9EE9AE9F41916FBFF2B309EA /* Pods-Messaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messaging.release.xcconfig"; path = "Target Support Files/Pods-Messaging/Pods-Messaging.release.xcconfig"; sourceTree = "<group>"; };
 		A71A85DFA0659DF68F843CB5 /* Pods_Messaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Messaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1A801223F5C84800B2C6C0 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		DA1A801423F703BE00B2C6C0 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		DA2B7D7223F57A1600C3AA1D /* AllRoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRoomsViewController.swift; sourceTree = "<group>"; };
 		DA2B7D7523F57B0100C3AA1D /* AddRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomViewController.swift; sourceTree = "<group>"; };
 		DA2B7D7823F57F9B00C3AA1D /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				DA7BCF9123F5353E00D5314D /* LaunchScreen.storyboard */,
 				DA7BCF9A23F53D3400D5314D /* GoogleService-Info.plist */,
 				DA7BCF9423F5353E00D5314D /* Info.plist */,
+				DA1A801423F703BE00B2C6C0 /* ViewControllerExtension.swift */,
 			);
 			path = Messaging;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				DA7BCF8923F5353D00D5314D /* AppDelegate.swift in Sources */,
 				DA1A801323F5C84800B2C6C0 /* Message.swift in Sources */,
 				DA2B7D7323F57A1600C3AA1D /* AllRoomsViewController.swift in Sources */,
+				DA1A801523F703BE00B2C6C0 /* ViewControllerExtension.swift in Sources */,
 				DA2B7D7923F57F9B00C3AA1D /* RoomCell.swift in Sources */,
 				DA2B7D7B23F593A900C3AA1D /* ChatViewController.swift in Sources */,
 				DA2B7D7E23F594DF00C3AA1D /* MyMessageCell.swift in Sources */,

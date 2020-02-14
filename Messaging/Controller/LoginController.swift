@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseAuth
-import Firebase
+import FirebaseFirestore
 import PopupDialog
+
 class ViewController: UIViewController {
     
     var db: Firestore?
@@ -36,9 +36,11 @@ class ViewController: UIViewController {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             // Register Submit Button Did Tapped
+//            showAlert(title: "ERROR", message: "Invalid e-mail \n Password must be longer than 6 characters")
             break
         default:
             // Login Submit Button Did Tapped
+            showAlert(title: "You just tapped on login", message: "")
             break
         }
     }
