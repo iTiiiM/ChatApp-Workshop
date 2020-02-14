@@ -37,7 +37,7 @@ class ChatViewController: UIViewController {
     }
     
     func addChatListener() {
-        db.collection("channels").document(channel ?? "").collection("messages").addSnapshotListener { (snapShot, error) in
+        db.collection("channels").document(channel ?? "").collection("messages").order(by: "timeStamp", descending: false).addSnapshotListener { (snapShot, error) in
             guard let documents = snapShot?.documents else {
                 print("Error fetching documents: \(error!)")
                 return
@@ -48,7 +48,7 @@ class ChatViewController: UIViewController {
     }
     
     func loadAllChats() {
-        db.collection("channels").document(channel ?? "").collection("messages").getDocuments { (snapShot, error) in
+        db.collection("channels").document(channel ?? "").collection("messages").order(by: "timeStamp", descending: false).getDocuments { (snapShot, error) in
             guard let documents = snapShot?.documents else {
                 print("Error fetching documents: \(error!)")
                 return
@@ -59,7 +59,7 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func sendButtonDidTapped(_ sender: Any) {
-        db.collection("channels").document(channel ?? "").collection("messages").addDocument(data: ["senderName": Auth.auth().currentUser?.displayName, "messageBody": messageTextField.text!])
+        db.collection("channels").document(channel ?? "").collection("messages").addDocument(data: ["senderName": Auth.auth().currentUser?.displayName, "messageBody": messageTextField.text!, "timeStamp": NSDate().timeIntervalSince1970])
         
     }
     
