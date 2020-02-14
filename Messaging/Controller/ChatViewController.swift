@@ -26,6 +26,7 @@ class ChatViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         self.navigationItem.title = channel
+        // Register TableViewCell to use custom cell
         tableView.register(UINib(nibName: "MyMessageCell", bundle: nil), forCellReuseIdentifier: "myMessageCell")
         tableView.register(UINib(nibName: "OtherMessageCell", bundle: nil), forCellReuseIdentifier: "otherMessageCell")
         tableView.separatorStyle = .none
@@ -37,24 +38,33 @@ class ChatViewController: UIViewController {
     }
     
     func addChatListener() {
+        // Add listener to documents to update chat sort by timeStamp
         db.collection("channels").document(channel ?? "").collection("messages").order(by: "timeStamp", descending: false).addSnapshotListener { (snapShot, error) in
-            guard let documents = snapShot?.documents else {
-                print("Error fetching documents: \(error!)")
-                return
+            if error != nil {
+//            guard let documents = snapShot?.documents else {
+//                print("Error fetching documents: \(error!)")
+//                return
+//            }
+                print(error!)
+            } else {
+                self.messageCollection = snapShot!.documents
+                self.tableView.reloadData()
             }
-            self.messageCollection = documents
-            self.tableView.reloadData()
         }
     }
     
     func loadAllChats() {
-        db.collection("channels").document(channel ?? "").collection("messages").order(by: "timeStamp", descending: false).getDocuments { (snapShot, error) in
-            guard let documents = snapShot?.documents else {
-                print("Error fetching documents: \(error!)")
-                return
-            }
-            self.messageCollection = documents
-            self.tableView.reloadData()
+                db.collection("channels").document(channel ?? "").collection("messages").order(by: "timeStamp", descending: false).getDocuments { (snapShot, error) in
+//            guard let documents = snapShot?.documents else {
+//                print("Error fetching documents: \(error!)")
+//                return
+//            }
+                    if error != nil {
+                        print(error!)
+                    } else  {
+                        self.messageCollection = snapShot!.documents
+                        self.tableView.reloadData()
+                    }
         }
     }
     

@@ -11,10 +11,8 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class AllRoomsViewController: UIViewController {
-    
-  
-    
     @IBOutlet weak var tableView: UITableView!
+    
     let db = Firestore.firestore()
     var roomsCollection: [QueryDocumentSnapshot] = []
     var roomName: String?
@@ -27,7 +25,6 @@ class AllRoomsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
         loadAllRooms()
     }
     
@@ -51,7 +48,13 @@ class AllRoomsViewController: UIViewController {
 }
 
 extension AllRoomsViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return roomsCollection.count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "roomCell") as! RoomCell
          roomName = roomsCollection[indexPath.row].data()["name"] as? String
         let roomDescription = roomsCollection[indexPath.row].data()["description"] as? String
@@ -61,6 +64,7 @@ extension AllRoomsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         roomName = roomsCollection[indexPath.row].data()["name"] as? String
         performSegue(withIdentifier: "toChat", sender: nil)
     }
@@ -71,10 +75,10 @@ extension AllRoomsViewController: UITableViewDataSource {
         }
     }
     
+    
+    
 }
 
 extension AllRoomsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return roomsCollection.count
-    }
+    
 }
