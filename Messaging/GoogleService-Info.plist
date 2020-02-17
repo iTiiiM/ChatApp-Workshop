@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>552981071224-jlq4t9vjdg944hepdijr6lkh6hv5giom.apps.googleusercontent.com</string>
+	<string>265654087150-bj5ja9g89lg71s319ahhan1e459buo5n.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.552981071224-jlq4t9vjdg944hepdijr6lkh6hv5giom</string>
+	<string>com.googleusercontent.apps.265654087150-bj5ja9g89lg71s319ahhan1e459buo5n</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCxbHj_NZn8J3hG_P1fcpo_kYU0cVCyaeE</string>
+	<string>AIzaSyDnRRB3PsjFjxY9b4V9Tt-nlxGzhbblCNk</string>
 	<key>GCM_SENDER_ID</key>
-	<string>552981071224</string>
+	<string>265654087150</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.iTiiiM.Messaging</string>
+	<string>com.prapawity.ChatAppXFirebase</string>
 	<key>PROJECT_ID</key>
-	<string>messagekit-tutorial</string>
+	<string>chatappxfirebase</string>
 	<key>STORAGE_BUCKET</key>
-	<string>messagekit-tutorial.appspot.com</string>
+	<string>chatappxfirebase.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:552981071224:ios:d811e0174d4e10e551b48d</string>
+	<string>1:265654087150:ios:791f467eb9236bc680f2ff</string>
 	<key>DATABASE_URL</key>
-	<string>https://messagekit-tutorial.firebaseio.com</string>
+	<string>https://chatappxfirebase.firebaseio.com</string>
 </dict>
 </plist>
