@@ -66,8 +66,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="CFC-DT-4tJ"/>
             <connections>
-                <outlet property="messageLabel" destination="bBw-if-itj" id="oQ3-qF-GFA"/>
-                <outlet property="senderNameLabel" destination="5HG-6J-rew" id="pY2-TD-yiF"/>
+                <outlet property="messageLabel" destination="bBw-if-itj" id="5Ts-4T-DSH"/>
+                <outlet property="senderNameLabel" destination="5HG-6J-rew" id="SOr-S1-uM9"/>
             </connections>
             <point key="canvasLocation" x="-154" y="-88"/>
         </tableViewCell>

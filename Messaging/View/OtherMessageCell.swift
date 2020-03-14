@@ -9,7 +9,6 @@
 import UIKit
 
 class OtherMessageCell: UITableViewCell {
-
     @IBOutlet weak var senderNameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
    

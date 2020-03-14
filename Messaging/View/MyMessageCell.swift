@@ -9,8 +9,6 @@
 import UIKit
 
 class MyMessageCell: UITableViewCell {
-
-    
     @IBOutlet weak var senderImageView: UIImageView!
     @IBOutlet weak var senderNameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!

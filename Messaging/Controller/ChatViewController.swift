@@ -12,9 +12,12 @@ import FirebaseAuth
 
 class ChatViewController: UIViewController {
     
+    let myMessageCellIdentifier = "myMessageCell"
+    let otherMessageCellIdentifier = "otherMessageCell"
+    
     let db = Firestore.firestore()
     var messageCollection: [QueryDocumentSnapshot] = []
-//    var messages: [Message] = []
+    var messages: [Message] = []
 
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -23,10 +26,11 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "MyMessageCell", bundle: nil), forCellReuseIdentifier: myMessageCellIdentifier)
+        tableView.register(UINib(nibName: "OtherMessageCell", bundle: nil), forCellReuseIdentifier: otherMessageCellIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
         self.navigationItem.title = channel
-        // Register TableViewCell to use custom cell
         tableView.separatorStyle = .none
         addChatListener()
     }
@@ -39,10 +43,6 @@ class ChatViewController: UIViewController {
         // Add listener to documents to update chat sort by timeStamp
         db.collection("channels").document(channel ?? "").collection("messages").order(by: "timeStamp", descending: false).addSnapshotListener { (snapShot, error) in
             if error != nil {
-//            guard let documents = snapShot?.documents else {
-//                print("Error fetching documents: \(error!)")
-//                return
-//            }
                 print(error!)
             } else {
                 self.messageCollection = snapShot!.documents
@@ -84,17 +84,19 @@ extension ChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+    
         let senderName = messageCollection[indexPath.row].data()["senderName"] as? String
         let message = messageCollection[indexPath.row].data()["messageBody"] as? String
         
         if senderName != Auth.auth().currentUser?.displayName {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "otherMessageCell") as! OtherMessageCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: otherMessageCellIdentifier) as! OtherMessageCell
             cell.selectionStyle = .none
             cell.configCell(name: senderName ?? "", message: message ?? "")
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "myMessageCell") as! MyMessageCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: myMessageCellIdentifier) as! MyMessageCell
             cell.selectionStyle = .none
             cell.configCell(name: senderName ?? "", message: message ?? "")
             return cell
