@@ -13,19 +13,17 @@ import FirebaseAuth
 class AllRoomsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    let roomCellIdentifier = "roomCell"
+    let toChatViewControllerIdentifier = "toChat"
     let db = Firestore.firestore()
     var roomsCollection: [QueryDocumentSnapshot] = []
-    var roomName: String?
+    var chatRoomName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
         addChannelListener()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        loadAllRooms()
     }
     
     func addChannelListener() {
@@ -35,13 +33,6 @@ class AllRoomsViewController: UIViewController {
                 return
             }
             self.roomsCollection = documents
-            self.tableView.reloadData()
-        }
-    }
-    
-    func loadAllRooms() {
-        db.collection("channels").getDocuments { (snapShot, error) in
-            self.roomsCollection = snapShot!.documents
             self.tableView.reloadData()
         }
     }
@@ -55,31 +46,26 @@ extension AllRoomsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "roomCell") as! RoomCell
-         roomName = roomsCollection[indexPath.row].data()["name"] as? String
-        let roomDescription = roomsCollection[indexPath.row].data()["description"] as? String
-        cell.selectionStyle = .none
-        cell.configCell(name: roomName ?? "", description: roomDescription ?? "")
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        roomName = roomsCollection[indexPath.row].data()["name"] as? String
-        performSegue(withIdentifier: "toChat", sender: nil)
-    
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destionationVC = segue.destination as? ChatViewController {
-            destionationVC.channel = roomName
+        let cell = tableView.dequeueReusableCell(withIdentifier: roomCellIdentifier) as! RoomCell
+        if let roomName = roomsCollection[indexPath.row].data()["name"], let roomDescription = roomsCollection[indexPath.row].data()["description"] {
+            cell.selectionStyle = .none
+            cell.configCell(name: roomName as! String, description: roomDescription as! String)
+            return cell
+        } else {
+            return UITableViewCell()
         }
     }
-    
-    
-    
 }
 
 extension AllRoomsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        chatRoomName = roomsCollection[indexPath.row].data()["name"] as? String
+        performSegue(withIdentifier: toChatViewControllerIdentifier, sender: nil)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destionationViewController = segue.destination as? ChatViewController {
+            destionationViewController.channel = chatRoomName
+        }
+    }
 }
