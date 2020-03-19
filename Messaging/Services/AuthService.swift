@@ -13,11 +13,15 @@ import PopupDialog
 
 public class AuthService {
     
-    public static func createUser(viewController: UIViewController, withEmail email: String, password: String, displayName: String) {
+    public enum AuthResult {
+        case success
+        case error
+    }
+    
+    public static func createUser(viewController: UIViewController, withEmail email: String, password: String, displayName: String, completion: @escaping(_ authResult: AuthResult) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if error != nil {
-                let popup = PopupDialog(title: "Register failed", message: "* Email already in use \n * Password must be longer than 6 characters")
-                viewController.present(popup, animated: true, completion: nil)
+                completion(.error)
             } else {
                 let user = Auth.auth().currentUser
                 if let user = user {
@@ -29,19 +33,17 @@ public class AuthService {
                         }
                     })
                 }
-                let popup = PopupDialog(title: "Register success", message: "")
-                viewController.present(popup, animated: true, completion: nil)
+                completion(.success)
             }
         }
     }
     
-    public static func login(viewController: UIViewController, withEmail email: String, password: String) {
+    public static func login(viewController: UIViewController, withEmail email: String, password: String, completion: @escaping(_ authResult: AuthResult) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
-                let popup = PopupDialog(title: "Login failed", message: "* Email is not in use \n * Password is incorrect")
-                viewController.present(popup, animated: true, completion: nil)
+                completion(.error)
             } else {
-                viewController.performSegue(withIdentifier: "toAllRooms", sender: nil)
+                completion(.success)
             }
         }
     }

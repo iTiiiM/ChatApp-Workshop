@@ -18,12 +18,13 @@
 		DA456050241634FE0026C0E9 /* MyMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA45604F241634FE0026C0E9 /* MyMessageCell.xib */; };
 		DA456052241635650026C0E9 /* OtherMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA456051241635650026C0E9 /* OtherMessageCell.xib */; };
 		DA7BCF8923F5353D00D5314D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BCF8823F5353D00D5314D /* AppDelegate.swift */; };
-		DA7BCF8B23F5353D00D5314D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BCF8A23F5353D00D5314D /* LoginController.swift */; };
+		DA7BCF8B23F5353D00D5314D /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BCF8A23F5353D00D5314D /* AuthenticationViewController.swift */; };
 		DA7BCF8E23F5353D00D5314D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7BCF8C23F5353D00D5314D /* Main.storyboard */; };
 		DA7BCF9023F5353E00D5314D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7BCF8F23F5353E00D5314D /* Assets.xcassets */; };
 		DA7BCF9323F5353E00D5314D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7BCF9123F5353E00D5314D /* LaunchScreen.storyboard */; };
 		DA7BCF9B23F53D3400D5314D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA7BCF9A23F53D3400D5314D /* GoogleService-Info.plist */; };
-		DADD2CB7241B894400264733 /* AuthServicee.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD2CB6241B894400264733 /* AuthServicee.swift */; };
+		DADD2CB7241B894400264733 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD2CB6241B894400264733 /* AuthService.swift */; };
+		DAF301222423EAF9000BCECF /* PopupDialog+Messaing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF301212423EAF9000BCECF /* PopupDialog+Messaing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,13 +42,14 @@
 		DA456051241635650026C0E9 /* OtherMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherMessageCell.xib; sourceTree = "<group>"; };
 		DA7BCF8523F5353D00D5314D /* Messaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7BCF8823F5353D00D5314D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA7BCF8A23F5353D00D5314D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		DA7BCF8A23F5353D00D5314D /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		DA7BCF8D23F5353D00D5314D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA7BCF8F23F5353E00D5314D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA7BCF9223F5353E00D5314D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA7BCF9423F5353E00D5314D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA7BCF9A23F53D3400D5314D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		DADD2CB6241B894400264733 /* AuthServicee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServicee.swift; sourceTree = "<group>"; };
+		DADD2CB6241B894400264733 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		DAF301212423EAF9000BCECF /* PopupDialog+Messaing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopupDialog+Messaing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +92,7 @@
 		DA2B7D7423F57A2E00C3AA1D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DA7BCF8A23F5353D00D5314D /* LoginController.swift */,
+				DA7BCF8A23F5353D00D5314D /* AuthenticationViewController.swift */,
 				DA2B7D7523F57B0100C3AA1D /* AddRoomViewController.swift */,
 				DA2B7D7223F57A1600C3AA1D /* AllRoomsViewController.swift */,
 				DA2B7D7A23F593A900C3AA1D /* ChatViewController.swift */,
@@ -131,6 +133,7 @@
 		DA7BCF8723F5353D00D5314D /* Messaging */ = {
 			isa = PBXGroup;
 			children = (
+				DAF301202423EACD000BCECF /* Extension */,
 				DADD2CB5241B893800264733 /* Services */,
 				DA1A801123F5C83900B2C6C0 /* Model */,
 				DA2B7D7723F57F8100C3AA1D /* View */,
@@ -148,9 +151,17 @@
 		DADD2CB5241B893800264733 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DADD2CB6241B894400264733 /* AuthServicee.swift */,
+				DADD2CB6241B894400264733 /* AuthService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		DAF301202423EACD000BCECF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DAF301212423EAF9000BCECF /* PopupDialog+Messaing.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,14 +283,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA2B7D8223F594FB00C3AA1D /* OtherMessageCell.swift in Sources */,
-				DADD2CB7241B894400264733 /* AuthServicee.swift in Sources */,
-				DA7BCF8B23F5353D00D5314D /* LoginController.swift in Sources */,
+				DADD2CB7241B894400264733 /* AuthService.swift in Sources */,
+				DA7BCF8B23F5353D00D5314D /* AuthenticationViewController.swift in Sources */,
 				DA7BCF8923F5353D00D5314D /* AppDelegate.swift in Sources */,
 				DA1A801323F5C84800B2C6C0 /* Message.swift in Sources */,
 				DA2B7D7323F57A1600C3AA1D /* AllRoomsViewController.swift in Sources */,
 				DA2B7D7923F57F9B00C3AA1D /* RoomCell.swift in Sources */,
 				DA2B7D7B23F593A900C3AA1D /* ChatViewController.swift in Sources */,
 				DA2B7D7E23F594DF00C3AA1D /* MyMessageCell.swift in Sources */,
+				DAF301222423EAF9000BCECF /* PopupDialog+Messaing.swift in Sources */,
 				DA2B7D7623F57B0100C3AA1D /* AddRoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

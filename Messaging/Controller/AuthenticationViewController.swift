@@ -8,7 +8,9 @@
 
 import UIKit
 import Firebase
-class ViewController: UIViewController {
+import PopupDialog
+
+class AuthenticationViewController: UIViewController {
     
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -36,10 +38,28 @@ class ViewController: UIViewController {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             //Register Submit Button
-            AuthService.createUser(viewController: self, withEmail: email, password: password, displayName: displayName)
+            AuthService.createUser(viewController: self, withEmail: email, password: password, displayName: displayName) { (registerResult) in
+                switch registerResult {
+                case .error:
+                    let popup = PopupDialog(.registerFailed)
+                    self.present(popup, animated: true, completion: nil)
+                case .success:
+                    let popup = PopupDialog(.registerSuccess)
+                    self.present(popup, animated: true, completion: nil)
+                }
+            }
+            
         default:
             //Login Submit Button
-            AuthService.login(viewController: self, withEmail: email, password: password)
+            AuthService.login(viewController: self, withEmail: email, password: password) { (loginResult) in
+                switch loginResult {
+                case .error:
+                    let popup = PopupDialog(.loginError)
+                    self.present(popup, animated: true, completion: nil)
+                case .success:
+                    self.performSegue(withIdentifier: "toAllRooms", sender: nil)
+                }
+            }
         }
     }
 }
