@@ -18,7 +18,7 @@ public class AuthService {
         case error
     }
     
-    public static func createUser(viewController: UIViewController, withEmail email: String, password: String, displayName: String, completion: @escaping(_ authResult: AuthResult) -> Void) {
+    public static func createUser(withEmail email: String, password: String, displayName: String, completion: @escaping(_ authResult: AuthResult) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if error != nil {
                 completion(.error)
@@ -38,7 +38,7 @@ public class AuthService {
         }
     }
     
-    public static func login(viewController: UIViewController, withEmail email: String, password: String, completion: @escaping(_ authResult: AuthResult) -> Void) {
+    public static func login(withEmail email: String, password: String, completion: @escaping(_ authResult: AuthResult) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
                 completion(.error)

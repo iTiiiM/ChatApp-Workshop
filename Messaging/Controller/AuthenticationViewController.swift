@@ -18,7 +18,12 @@ class AuthenticationViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var displayNameStackView: UIStackView!
     var db: Firestore?
-  
+    
+    enum SegmentedIndex: Int {
+        case register = 0
+        case login = 1
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
@@ -26,19 +31,21 @@ class AuthenticationViewController: UIViewController {
     
     @IBAction func indexChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
-        case 0:
+        case SegmentedIndex.register.rawValue:
             displayNameStackView.isHidden = false
-        default:
+        case SegmentedIndex.login.rawValue:
             displayNameStackView.isHidden = true
+        default: break
         }
     }
     
     @IBAction func submitButtonDidTapped(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text, let displayName = displayNameTextField.text else { return }
+        
         switch segmentedControl.selectedSegmentIndex {
-        case 0:
+        case SegmentedIndex.register.rawValue:
             //Register Submit Button
-            AuthService.createUser(viewController: self, withEmail: email, password: password, displayName: displayName) { (registerResult) in
+            AuthService.createUser(withEmail: email, password: password, displayName: displayName) { (registerResult) in
                 switch registerResult {
                 case .error:
                     let popup = PopupDialog(.registerFailed)
@@ -48,10 +55,9 @@ class AuthenticationViewController: UIViewController {
                     self.present(popup, animated: true, completion: nil)
                 }
             }
-            
-        default:
+        case SegmentedIndex.login.rawValue:
             //Login Submit Button
-            AuthService.login(viewController: self, withEmail: email, password: password) { (loginResult) in
+            AuthService.login(withEmail: email, password: password) { (loginResult) in
                 switch loginResult {
                 case .error:
                     let popup = PopupDialog(.loginError)
@@ -60,7 +66,7 @@ class AuthenticationViewController: UIViewController {
                     self.performSegue(withIdentifier: "toAllRooms", sender: nil)
                 }
             }
+        default: break
         }
     }
 }
-
