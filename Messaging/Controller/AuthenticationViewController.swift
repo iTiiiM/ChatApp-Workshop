@@ -15,6 +15,7 @@ class AuthenticationViewController: UIViewController {
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var displayNameStackView: UIStackView!
     var db: Firestore?
@@ -40,20 +41,25 @@ class AuthenticationViewController: UIViewController {
     }
     
     @IBAction func submitButtonDidTapped(_ sender: Any) {
-        guard let email = emailTextField.text, let password = passwordTextField.text, let displayName = displayNameTextField.text else { return }
+        guard let email = emailTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text, let displayName = displayNameTextField.text else { return }
         
         switch segmentedControl.selectedSegmentIndex {
         case SegmentedIndex.register.rawValue:
             //Register Submit Button
-            AuthService.createUser(withEmail: email, password: password, displayName: displayName) { (registerResult) in
-                switch registerResult {
-                case .error:
-                    let popup = PopupDialog(.registerFailed)
-                    self.present(popup, animated: true, completion: nil)
-                case .success:
-                    let popup = PopupDialog(.registerSuccess)
-                    self.present(popup, animated: true, completion: nil)
+            if password == confirmPassword {
+                AuthService.createUser(withEmail: email, password: password, displayName: displayName) { (registerResult) in
+                    switch registerResult {
+                    case .error:
+                        let popup = PopupDialog(.registerFailed)
+                        self.present(popup, animated: true, completion: nil)
+                    case .success:
+                        let popup = PopupDialog(.registerSuccess)
+                        self.present(popup, animated: true, completion: nil)
+                    }
                 }
+            } else {
+                let popup = PopupDialog(.registerFailedPasswordInvalid)
+                self.present(popup, animated: true, completion: nil)
             }
         case SegmentedIndex.login.rawValue:
             //Login Submit Button
