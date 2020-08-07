@@ -26,6 +26,13 @@ class AllRoomsViewController: UIViewController {
         addChannelListener()
     }
     
+    
+    @IBAction func didTapAddRoomButton(_ sender: UIButton) {
+        let view = AddRoomPopupView()
+        self.view.addSubview(view)
+    }
+
+    
     func addChannelListener() {
         db.collection("channels").addSnapshotListener { querySnapshot, error in
             guard let documents = querySnapshot?.documents else {

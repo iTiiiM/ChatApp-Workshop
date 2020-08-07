@@ -15,6 +15,7 @@
 		DA2B7D7B23F593A900C3AA1D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B7D7A23F593A900C3AA1D /* ChatViewController.swift */; };
 		DA2B7D7E23F594DF00C3AA1D /* MyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B7D7C23F594DF00C3AA1D /* MyMessageCell.swift */; };
 		DA2B7D8223F594FB00C3AA1D /* OtherMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2B7D8023F594FB00C3AA1D /* OtherMessageCell.swift */; };
+		DA2D24CE2425423F004DD4A3 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D24CD2425423F004DD4A3 /* FirebaseService.swift */; };
 		DA456050241634FE0026C0E9 /* MyMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA45604F241634FE0026C0E9 /* MyMessageCell.xib */; };
 		DA456052241635650026C0E9 /* OtherMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA456051241635650026C0E9 /* OtherMessageCell.xib */; };
 		DA7BCF8923F5353D00D5314D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BCF8823F5353D00D5314D /* AppDelegate.swift */; };
@@ -23,6 +24,9 @@
 		DA7BCF9023F5353E00D5314D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7BCF8F23F5353E00D5314D /* Assets.xcassets */; };
 		DA7BCF9323F5353E00D5314D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7BCF9123F5353E00D5314D /* LaunchScreen.storyboard */; };
 		DA7BCF9B23F53D3400D5314D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA7BCF9A23F53D3400D5314D /* GoogleService-Info.plist */; };
+		DAAD20F4242A0B01002685A1 /* AddRoomPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAAD20F3242A0B01002685A1 /* AddRoomPopupView.xib */; };
+		DAAD20F6242A0CBF002685A1 /* AddRoomPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAD20F5242A0CBF002685A1 /* AddRoomPopupView.swift */; };
+		DAD9C48324DD360600019854 /* UIViewController+Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9C48224DD360600019854 /* UIViewController+Messaging.swift */; };
 		DADD2CB7241B894400264733 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD2CB6241B894400264733 /* AuthService.swift */; };
 		DAF301222423EAF9000BCECF /* PopupDialog+Messaing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF301212423EAF9000BCECF /* PopupDialog+Messaing.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +42,7 @@
 		DA2B7D7A23F593A900C3AA1D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		DA2B7D7C23F594DF00C3AA1D /* MyMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageCell.swift; sourceTree = "<group>"; };
 		DA2B7D8023F594FB00C3AA1D /* OtherMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMessageCell.swift; sourceTree = "<group>"; };
+		DA2D24CD2425423F004DD4A3 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		DA45604F241634FE0026C0E9 /* MyMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMessageCell.xib; sourceTree = "<group>"; };
 		DA456051241635650026C0E9 /* OtherMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherMessageCell.xib; sourceTree = "<group>"; };
 		DA7BCF8523F5353D00D5314D /* Messaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +53,9 @@
 		DA7BCF9223F5353E00D5314D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA7BCF9423F5353E00D5314D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA7BCF9A23F53D3400D5314D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DAAD20F3242A0B01002685A1 /* AddRoomPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRoomPopupView.xib; sourceTree = "<group>"; };
+		DAAD20F5242A0CBF002685A1 /* AddRoomPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomPopupView.swift; sourceTree = "<group>"; };
+		DAD9C48224DD360600019854 /* UIViewController+Messaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Messaging.swift"; sourceTree = "<group>"; };
 		DADD2CB6241B894400264733 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DAF301212423EAF9000BCECF /* PopupDialog+Messaing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopupDialog+Messaing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +116,8 @@
 				DA2B7D8023F594FB00C3AA1D /* OtherMessageCell.swift */,
 				DA45604F241634FE0026C0E9 /* MyMessageCell.xib */,
 				DA456051241635650026C0E9 /* OtherMessageCell.xib */,
+				DAAD20F3242A0B01002685A1 /* AddRoomPopupView.xib */,
+				DAAD20F5242A0CBF002685A1 /* AddRoomPopupView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -152,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				DADD2CB6241B894400264733 /* AuthService.swift */,
+				DA2D24CD2425423F004DD4A3 /* FirebaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -160,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				DAF301212423EAF9000BCECF /* PopupDialog+Messaing.swift */,
+				DAD9C48224DD360600019854 /* UIViewController+Messaging.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -225,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA456052241635650026C0E9 /* OtherMessageCell.xib in Resources */,
+				DAAD20F4242A0B01002685A1 /* AddRoomPopupView.xib in Resources */,
 				DA7BCF9323F5353E00D5314D /* LaunchScreen.storyboard in Resources */,
 				DA7BCF9023F5353E00D5314D /* Assets.xcassets in Resources */,
 				DA7BCF9B23F53D3400D5314D /* GoogleService-Info.plist in Resources */,
@@ -286,12 +299,15 @@
 				DADD2CB7241B894400264733 /* AuthService.swift in Sources */,
 				DA7BCF8B23F5353D00D5314D /* AuthenticationViewController.swift in Sources */,
 				DA7BCF8923F5353D00D5314D /* AppDelegate.swift in Sources */,
+				DAD9C48324DD360600019854 /* UIViewController+Messaging.swift in Sources */,
 				DA1A801323F5C84800B2C6C0 /* Message.swift in Sources */,
+				DAAD20F6242A0CBF002685A1 /* AddRoomPopupView.swift in Sources */,
 				DA2B7D7323F57A1600C3AA1D /* AllRoomsViewController.swift in Sources */,
 				DA2B7D7923F57F9B00C3AA1D /* RoomCell.swift in Sources */,
 				DA2B7D7B23F593A900C3AA1D /* ChatViewController.swift in Sources */,
 				DA2B7D7E23F594DF00C3AA1D /* MyMessageCell.swift in Sources */,
 				DAF301222423EAF9000BCECF /* PopupDialog+Messaing.swift in Sources */,
+				DA2D24CE2425423F004DD4A3 /* FirebaseService.swift in Sources */,
 				DA2B7D7623F57B0100C3AA1D /* AddRoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -424,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -439,14 +455,17 @@
 			baseConfigurationReference = 7240974E64529C301081EA8C /* Pods-Messaging.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QQLG7C29F5;
 				INFOPLIST_FILE = Messaging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.iTiiiM.Messaging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iTiiiM.portMessage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -457,14 +476,17 @@
 			baseConfigurationReference = 9EE9AE9F41916FBFF2B309EA /* Pods-Messaging.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QQLG7C29F5;
 				INFOPLIST_FILE = Messaging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.iTiiiM.Messaging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iTiiiM.portMessage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
