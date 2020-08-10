@@ -12,11 +12,6 @@ import FirebaseFirestore
 class AddRoomViewController: UIViewController {
 
     let db = Firestore.firestore()
-    
-    @IBOutlet weak var roomNameTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +19,7 @@ class AddRoomViewController: UIViewController {
     }
     
     @IBAction func addRoomButtonDidTapped(_ sender: Any) {
-        db.collection("channels").document(roomNameTextField.text!).setData(["name": roomNameTextField.text, "description": descriptionTextField.text])
+//        db.collection("channels").document(roomNameTextField.text!).setData(["name": roomNameTextField.text, "description": descriptionTextField.text])
         self.navigationController?.popViewController(animated: true)
     }
     

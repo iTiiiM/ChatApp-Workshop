@@ -26,8 +26,11 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         tableView.register(UINib(nibName: "MyMessageCell", bundle: nil), forCellReuseIdentifier: myMessageCellIdentifier)
         tableView.register(UINib(nibName: "OtherMessageCell", bundle: nil), forCellReuseIdentifier: otherMessageCellIdentifier)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
         tableView.delegate = self
         tableView.dataSource = self
         self.navigationItem.title = channel
@@ -38,6 +41,21 @@ class ChatViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         loadAllChats()
     }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
     
     func addChatListener() {
         // Add listener to documents to update chat sort by timeStamp
@@ -52,11 +70,7 @@ class ChatViewController: UIViewController {
     }
     
     func loadAllChats() {
-                db.collection("channels").document(channel ?? "").collection("messages").order(by: "timeStamp", descending: false).getDocuments { (snapShot, error) in
-//            guard let documents = snapShot?.documents else {
-//                print("Error fetching documents: \(error!)")
-//                return
-//            }
+        db.collection("channels").document(channel ?? "").collection("messages").order(by: "timeStamp", descending: false).getDocuments { (snapShot, error) in
                     if error != nil {
                         print(error!)
                     } else  {
@@ -68,9 +82,7 @@ class ChatViewController: UIViewController {
     
     @IBAction func sendButtonDidTapped(_ sender: Any) {
         db.collection("channels").document(channel ?? "").collection("messages").addDocument(data: ["senderName": Auth.auth().currentUser?.displayName, "messageBody": messageTextField.text!, "timeStamp": NSDate().timeIntervalSince1970])
-        
     }
-    
 }
 
 extension ChatViewController: UITableViewDelegate {
@@ -84,13 +96,9 @@ extension ChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-    
         let senderName = messageCollection[indexPath.row].data()["senderName"] as? String
         let message = messageCollection[indexPath.row].data()["messageBody"] as? String
-        
         if senderName != Auth.auth().currentUser?.displayName {
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: otherMessageCellIdentifier) as! OtherMessageCell
             cell.selectionStyle = .none
             cell.configCell(name: senderName ?? "", message: message ?? "")

@@ -10,13 +10,6 @@ import Foundation
 import PopupDialog
 
 extension PopupDialog {
-    // Use extension because it cannot subclass (Final Class)
-    // Easier to find bug from popup
-
-    // *** Extension can't have stored property
-    // *** Nil is only return type in class initializer
-    
-    // Could refactor more if have localized string
     enum PopupDialogCases {
         case registerFailed
         case registerSuccess

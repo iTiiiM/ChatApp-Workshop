@@ -10,21 +10,36 @@ import UIKit
 import FirebaseFirestore
 
 class AddRoomPopupView: UIView {
+    
+    @IBOutlet var contentView: UIView!
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        Bundle.main.loadNibNamed("AddRoomPopupView", owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+    }
 
     @IBOutlet weak var roomNameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     
     let db = Firestore.firestore()
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-    
+
     @IBAction func didTapAddRoomButton(_ sender: UIButton) {
-        db.collection("channels").document(roomNameTextField.text!).setData(["name": roomNameTextField.text, "description": descriptionTextField.text])
+//        db.collection("channels").document(roomNameTextField.text!).setData(["name": roomNameTextField.text, "description": descriptionTextField.text])
 //        self.navigationController?.popViewController(animated: true)
     }
     
