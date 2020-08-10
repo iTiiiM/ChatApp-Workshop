@@ -12,24 +12,35 @@ import FirebaseAuth
 
 class AllRoomsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var dimBackgroundView: UIView!
     
     let roomCellIdentifier = "roomCell"
     let toChatViewControllerIdentifier = "toChat"
     let db = Firestore.firestore()
     var roomsCollection: [QueryDocumentSnapshot] = []
     var chatRoomName: String?
-    
+    var addRoomPopupView: UIView?
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        addRoomPopupView = AddRoomPopupView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.frame.width - 20, height: 400)))
         tableView.dataSource = self
         tableView.delegate = self
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(removeAddRoomPopupView))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
         addChannelListener()
     }
     
+    @objc func removeAddRoomPopupView() {
+        addRoomPopupView?.removeFromSuperview()
+        self.dimBackgroundView.isHidden = true
+    }
     
     @IBAction func didTapAddRoomButton(_ sender: UIButton) {
-        let view = AddRoomPopupView()
-        self.view.addSubview(view)
+        addRoomPopupView?.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2)
+        self.view.addSubview(addRoomPopupView ?? UIView())
+        self.dimBackgroundView.isHidden = false
     }
 
     

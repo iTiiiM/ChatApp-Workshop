@@ -175,14 +175,14 @@
         <!--All Rooms View Controller-->
         <scene sceneID="xlr-8f-WMW">
             <objects>
-                <viewController id="Umc-Ls-Zjq" customClass="AllRoomsViewController" customModule="Messaging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Umc-Ls-Zjq" customClass="AllRoomsViewController" customModule="Messaging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SSp-xm-6RQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A87-Bj-UFg">
                                 <rect key="frame" x="0.0" y="56" width="414" height="660"/>
-                                <color key="backgroundColor" red="0.99654692410000001" green="0.34516865019999998" blue="0.39605700970000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.99607843137254903" green="0.34509803921568627" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.99654692410000001" green="0.34516865019999998" blue="0.39605700970000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="roomCell" rowHeight="129" id="Qf9-Le-MCC" customClass="RoomCell" customModule="Messaging" customModuleProvider="target">
@@ -229,7 +229,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="ph3-1K-jgi" secondAttribute="bottom" constant="10" id="p6y-Q5-fbv"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.99661451580000004" green="0.40039092300000001" blue="0.4195854664" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.99607843137254903" green="0.34509803921568627" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="put-k8-C9h" id="MO6-l6-m7j"/>
                                             <outlet property="roomNameLabel" destination="YGm-e0-nm1" id="pRu-Dk-Q72"/>
@@ -237,6 +237,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Yi-aI-gmh">
+                                <rect key="frame" x="0.0" y="56" width="414" height="660"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.99661451580000004" green="0.40039092300000001" blue="0.4195854664" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -244,6 +248,10 @@
                             <constraint firstItem="THI-yN-cPc" firstAttribute="trailing" secondItem="A87-Bj-UFg" secondAttribute="trailing" id="ErA-hE-s11"/>
                             <constraint firstItem="A87-Bj-UFg" firstAttribute="top" secondItem="THI-yN-cPc" secondAttribute="top" id="OXE-8x-SSu"/>
                             <constraint firstItem="THI-yN-cPc" firstAttribute="bottom" secondItem="A87-Bj-UFg" secondAttribute="bottom" id="gBq-Ie-LE7"/>
+                            <constraint firstItem="1Yi-aI-gmh" firstAttribute="top" secondItem="THI-yN-cPc" secondAttribute="top" id="iaq-9r-N6b"/>
+                            <constraint firstItem="1Yi-aI-gmh" firstAttribute="leading" secondItem="THI-yN-cPc" secondAttribute="leading" id="kI0-Ma-qhP"/>
+                            <constraint firstItem="THI-yN-cPc" firstAttribute="bottom" secondItem="1Yi-aI-gmh" secondAttribute="bottom" id="ohk-He-eJM"/>
+                            <constraint firstItem="THI-yN-cPc" firstAttribute="trailing" secondItem="1Yi-aI-gmh" secondAttribute="trailing" id="vxL-dJ-QaZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="THI-yN-cPc"/>
                     </view>
@@ -262,6 +270,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dimBackgroundView" destination="1Yi-aI-gmh" id="Lwt-jL-Qbi"/>
                         <outlet property="tableView" destination="A87-Bj-UFg" id="us4-Pc-cCE"/>
                         <segue destination="JA7-0t-sXT" kind="show" identifier="toChat" id="dDi-fU-l1L"/>
                     </connections>
@@ -336,10 +345,10 @@
         <!--Navigation Controller-->
         <scene sceneID="0rg-bZ-ogB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AUl-as-rsd" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="AUl-as-rsd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ip2-ea-HcS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
