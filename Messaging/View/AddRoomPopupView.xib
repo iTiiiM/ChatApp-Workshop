@@ -10,48 +10,65 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddRoomPopupView" customModule="Messaging" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="xjY-en-kyY"/>
+                <outlet property="descriptionErrorLabel" destination="n8N-l7-0W7" id="FZd-iK-Vio"/>
                 <outlet property="descriptionTextField" destination="8X8-U2-KFb" id="l37-tW-p9e"/>
+                <outlet property="roomNameErrorLabel" destination="ar1-xh-gyr" id="TsJ-vc-kys"/>
                 <outlet property="roomNameTextField" destination="Pdb-Zr-5VU" id="Z0f-KJ-wC4"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="584" height="326"/>
+            <rect key="frame" x="0.0" y="0.0" width="604" height="292"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AW2-Gf-kXN">
-                    <rect key="frame" x="0.0" y="44" width="584" height="248"/>
+                    <rect key="frame" x="0.0" y="44" width="604" height="248"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VcX-al-R4O">
-                            <rect key="frame" x="15" y="15" width="554" height="218"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VcX-al-R4O">
+                            <rect key="frame" x="15" y="15" width="574" height="218"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room's name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9s-cE-IJv">
-                                    <rect key="frame" x="0.0" y="0.0" width="554" height="27.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Room's name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9s-cE-IJv">
+                                    <rect key="frame" x="0.0" y="0.0" width="574" height="24"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pdb-Zr-5VU">
-                                    <rect key="frame" x="0.0" y="37.5" width="554" height="40"/>
+                                    <rect key="frame" x="0.0" y="34" width="574" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="KgH-dP-BaO"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please fill in the information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ar1-xh-gyr">
+                                    <rect key="frame" x="0.0" y="79" width="574" height="0.0"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hm3-Cc-IHU">
-                                    <rect key="frame" x="0.0" y="87.5" width="554" height="27.5"/>
+                                    <rect key="frame" x="0.0" y="84" width="574" height="24"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="800" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8X8-U2-KFb">
-                                    <rect key="frame" x="0.0" y="125" width="554" height="33"/>
+                                    <rect key="frame" x="0.0" y="118" width="574" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="SXA-Mb-DOK"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                 </textField>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please fill in the information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8N-l7-0W7">
+                                    <rect key="frame" x="0.0" y="163" width="574" height="0.0"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3t-0S-FdW">
-                                    <rect key="frame" x="0.0" y="168" width="554" height="50"/>
+                                    <rect key="frame" x="0.0" y="168" width="574" height="50"/>
                                     <color key="backgroundColor" red="0.99680441620000004" green="0.345307529" blue="0.39213475580000001" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="Edq-vi-UJj"/>
@@ -91,14 +108,13 @@
                 <constraint firstItem="AW2-Gf-kXN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="AwP-ck-kR8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AW2-Gf-kXN" secondAttribute="trailing" id="IF1-yV-xOV"/>
                 <constraint firstItem="AW2-Gf-kXN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="PMh-Fp-mZJ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="AW2-Gf-kXN" secondAttribute="bottom" id="n99-GB-KPg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="string" keyPath="layer.borderRadius" value="10"/>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="-188.40579710144928" y="-1.3392857142857142"/>
+            <point key="canvasLocation" x="-173.91304347826087" y="16.071428571428569"/>
         </view>
     </objects>
 </document>

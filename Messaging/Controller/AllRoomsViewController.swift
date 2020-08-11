@@ -23,18 +23,14 @@ class AllRoomsViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        addRoomPopupView = AddRoomPopupView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.frame.width - 20, height: 400)))
+        addRoomPopupView = AddRoomPopupView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.frame.width - 20, height: 250)))
         tableView.dataSource = self
         tableView.delegate = self
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(removeAddRoomPopupView))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
         addChannelListener()
     }
     
     @objc func removeAddRoomPopupView() {
         addRoomPopupView?.removeFromSuperview()
-        self.dimBackgroundView.isHidden = true
     }
     
     @IBAction func didTapAddRoomButton(_ sender: UIButton) {
@@ -50,6 +46,7 @@ class AllRoomsViewController: UIViewController {
                 print("Error fetching documents: \(error!)")
                 return
             }
+            self.dimBackgroundView.isHidden = true
             self.roomsCollection = documents
             self.tableView.reloadData()
         }

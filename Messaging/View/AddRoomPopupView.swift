@@ -12,12 +12,10 @@ import FirebaseFirestore
 class AddRoomPopupView: UIView {
     
     @IBOutlet var contentView: UIView!
-    
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -30,17 +28,30 @@ class AddRoomPopupView: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
+        hideKeyboardWhenTappedAround()
     }
 
+    @IBOutlet weak var roomNameErrorLabel: UILabel!
     @IBOutlet weak var roomNameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var descriptionErrorLabel: UILabel!
     
     let db = Firestore.firestore()
-
-    @IBAction func didTapAddRoomButton(_ sender: UIButton) {
-//        db.collection("channels").document(roomNameTextField.text!).setData(["name": roomNameTextField.text, "description": descriptionTextField.text])
-//        self.navigationController?.popViewController(animated: true)
+    
+    func toggleErrorLabel() {
+        roomNameErrorLabel.isHidden = !roomNameTextField.text!.isEmpty
+        descriptionErrorLabel.isHidden = !descriptionTextField.text!.isEmpty
     }
     
+    func validateAddRoomInput() -> Bool{
+        return !roomNameTextField.text!.isEmpty && !descriptionTextField.text!.isEmpty
+    }
+
+    @IBAction func didTapAddRoomButton(_ sender: UIButton) {
+        toggleErrorLabel()
+        if validateAddRoomInput() {
+            db.collection("channels").document(roomNameTextField.text!).setData(["name": roomNameTextField.text, "description": descriptionTextField.text])
+            self.removeFromSuperview()
+        }
+    }
 }
