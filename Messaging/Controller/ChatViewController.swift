@@ -26,20 +26,23 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideKeyboardWhenTappedAround()
-        tableView.register(UINib(nibName: "MyMessageCell", bundle: nil), forCellReuseIdentifier: myMessageCellIdentifier)
-        tableView.register(UINib(nibName: "OtherMessageCell", bundle: nil), forCellReuseIdentifier: otherMessageCellIdentifier)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
-        tableView.delegate = self
-        tableView.dataSource = self
-        self.navigationItem.title = channel
-        tableView.separatorStyle = .none
+        setUpTableViewCell()
+        addKeyboardObserver()
         addChatListener()
+        self.navigationItem.title = channel
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        loadAllChats()
+    func setUpTableViewCell() {
+        tableView.register(UINib(nibName: "MyMessageCell", bundle: nil), forCellReuseIdentifier: myMessageCellIdentifier)
+        tableView.register(UINib(nibName: "OtherMessageCell", bundle: nil), forCellReuseIdentifier: otherMessageCellIdentifier)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+    }
+    
+    func addKeyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -65,21 +68,14 @@ class ChatViewController: UIViewController {
             } else {
                 self.messageCollection = snapShot!.documents
                 self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    let indexPath = IndexPath(row: self.messageCollection.count-1, section: 0)
+                    self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                }
             }
         }
     }
-    
-    func loadAllChats() {
-        db.collection("channels").document(channel ?? "").collection("messages").order(by: "timeStamp", descending: false).getDocuments { (snapShot, error) in
-                    if error != nil {
-                        print(error!)
-                    } else  {
-                        self.messageCollection = snapShot!.documents
-                        self.tableView.reloadData()
-                    }
-        }
-    }
-    
+
     @IBAction func sendButtonDidTapped(_ sender: Any) {
         db.collection("channels").document(channel ?? "").collection("messages").addDocument(data: ["senderName": Auth.auth().currentUser?.displayName, "messageBody": messageTextField.text!, "timeStamp": NSDate().timeIntervalSince1970])
     }

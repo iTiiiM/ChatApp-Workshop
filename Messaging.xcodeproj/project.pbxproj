@@ -18,6 +18,7 @@
 		DA2D24CE2425423F004DD4A3 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D24CD2425423F004DD4A3 /* FirebaseService.swift */; };
 		DA456050241634FE0026C0E9 /* MyMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA45604F241634FE0026C0E9 /* MyMessageCell.xib */; };
 		DA456052241635650026C0E9 /* OtherMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA456051241635650026C0E9 /* OtherMessageCell.xib */; };
+		DA6DC24724E275250021D22E /* UITableView+Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6DC24624E275250021D22E /* UITableView+Messaging.swift */; };
 		DA7BCF8923F5353D00D5314D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BCF8823F5353D00D5314D /* AppDelegate.swift */; };
 		DA7BCF8B23F5353D00D5314D /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BCF8A23F5353D00D5314D /* AuthenticationViewController.swift */; };
 		DA7BCF8E23F5353D00D5314D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7BCF8C23F5353D00D5314D /* Main.storyboard */; };
@@ -26,7 +27,7 @@
 		DA7BCF9B23F53D3400D5314D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA7BCF9A23F53D3400D5314D /* GoogleService-Info.plist */; };
 		DAAD20F4242A0B01002685A1 /* AddRoomPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAAD20F3242A0B01002685A1 /* AddRoomPopupView.xib */; };
 		DAAD20F6242A0CBF002685A1 /* AddRoomPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAD20F5242A0CBF002685A1 /* AddRoomPopupView.swift */; };
-		DAD9C48324DD360600019854 /* UIViewController+Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9C48224DD360600019854 /* UIViewController+Messaging.swift */; };
+		DAD9C48324DD360600019854 /* UIView+Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9C48224DD360600019854 /* UIView+Messaging.swift */; };
 		DADD2CB7241B894400264733 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD2CB6241B894400264733 /* AuthService.swift */; };
 		DAF301222423EAF9000BCECF /* PopupDialog+Messaing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF301212423EAF9000BCECF /* PopupDialog+Messaing.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		DA2D24CD2425423F004DD4A3 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		DA45604F241634FE0026C0E9 /* MyMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMessageCell.xib; sourceTree = "<group>"; };
 		DA456051241635650026C0E9 /* OtherMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherMessageCell.xib; sourceTree = "<group>"; };
+		DA6DC24624E275250021D22E /* UITableView+Messaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Messaging.swift"; sourceTree = "<group>"; };
 		DA7BCF8523F5353D00D5314D /* Messaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7BCF8823F5353D00D5314D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA7BCF8A23F5353D00D5314D /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +57,7 @@
 		DA7BCF9A23F53D3400D5314D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DAAD20F3242A0B01002685A1 /* AddRoomPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRoomPopupView.xib; sourceTree = "<group>"; };
 		DAAD20F5242A0CBF002685A1 /* AddRoomPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomPopupView.swift; sourceTree = "<group>"; };
-		DAD9C48224DD360600019854 /* UIViewController+Messaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Messaging.swift"; sourceTree = "<group>"; };
+		DAD9C48224DD360600019854 /* UIView+Messaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Messaging.swift"; sourceTree = "<group>"; };
 		DADD2CB6241B894400264733 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DAF301212423EAF9000BCECF /* PopupDialog+Messaing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopupDialog+Messaing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,7 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				DAF301212423EAF9000BCECF /* PopupDialog+Messaing.swift */,
-				DAD9C48224DD360600019854 /* UIViewController+Messaging.swift */,
+				DAD9C48224DD360600019854 /* UIView+Messaging.swift */,
+				DA6DC24624E275250021D22E /* UITableView+Messaging.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -297,9 +300,10 @@
 			files = (
 				DA2B7D8223F594FB00C3AA1D /* OtherMessageCell.swift in Sources */,
 				DADD2CB7241B894400264733 /* AuthService.swift in Sources */,
+				DA6DC24724E275250021D22E /* UITableView+Messaging.swift in Sources */,
 				DA7BCF8B23F5353D00D5314D /* AuthenticationViewController.swift in Sources */,
 				DA7BCF8923F5353D00D5314D /* AppDelegate.swift in Sources */,
-				DAD9C48324DD360600019854 /* UIViewController+Messaging.swift in Sources */,
+				DAD9C48324DD360600019854 /* UIView+Messaging.swift in Sources */,
 				DA1A801323F5C84800B2C6C0 /* Message.swift in Sources */,
 				DAAD20F6242A0CBF002685A1 /* AddRoomPopupView.swift in Sources */,
 				DA2B7D7323F57A1600C3AA1D /* AllRoomsViewController.swift in Sources */,

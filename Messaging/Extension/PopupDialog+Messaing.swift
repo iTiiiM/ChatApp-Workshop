@@ -20,13 +20,13 @@ extension PopupDialog {
     convenience init(_ popupDialogCase: PopupDialogCases) {
         switch popupDialogCase {
         case .registerFailed:
-            self.init(title: "Register failed", message: "* Password must be longer than 6 characters")
+            self.init(title: "Register failed", message: "* Password must be longer than 6 characters \n * Email is already in use")
         case .registerSuccess:
             self.init(title: "Register success", message: "")
         case .registerFailedPasswordInvalid:
             self.init(title: "Register failed", message: "* Password and Confirm password doesn't match")
         case .loginError:
-            self.init(title: "Login failed", message: "* Email is not in use \n * Password is incorrect")
+            self.init(title: "Login failed", message: "* Email is incorrect \n * Password is incorrect")
         }
     }
 }
